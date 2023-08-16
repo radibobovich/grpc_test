@@ -3,7 +3,7 @@ import 'package:grpc_test/generated/workstation.pbgrpc.dart';
 import 'package:args/args.dart';
 
 Future<void> main(List<String> args) async {
-  print(args);
+  // print(args);
   var parser = ArgParser();
   parser.addOption('ip', mandatory: true);
   parser.addOption('command', mandatory: true);
@@ -15,7 +15,6 @@ Future<void> main(List<String> args) async {
   final ip = parsedArgs['ip'];
   final command = parsedArgs['command'];
   final Iterable<String> arguments = parsedArgs.rest;
-  print(arguments);
   final channel = ClientChannel(
     ip,
     port: 50051,
