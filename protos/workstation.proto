@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+service RemoteTerminal{
+    rpc performCommand (RemoteTerminalRequest) returns (RemoteTerminalReply) {}
+}
+
+message RemoteTerminalRequest {
+    string command = 1;
+    repeated string args = 2;
+    
+}
+
+message RemoteTerminalReply {
+    string stdout = 1;
+}
