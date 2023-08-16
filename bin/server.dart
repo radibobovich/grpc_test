@@ -9,7 +9,8 @@ class TerminalService extends RemoteTerminalServiceBase {
       ServiceCall call, RemoteTerminalRequest request) async {
     String result = 'no result';
     final List<String> args = request.args.toList();
-    await Process.start(request.command, args).then((process) async {
+    await Process.start(request.command, args, runInShell: true)
+        .then((process) async {
       final output = <int>[];
 
       process.stdout.listen((data) {
